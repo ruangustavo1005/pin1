@@ -1,9 +1,11 @@
 <?php
 
-require_once '../estrutura/Funcoes.inc';
-//require_once '../estrutura/Base.php';
-//require_once '../estrutura/CardVeiculo.inc';
-//require_once '../estrutura/Menu.inc';
+require_once '../estrutura/funcoes.inc';
+require_once '../estrutura/base.inc';
+require_once '../estrutura/card_veiculo.inc';
+require_once '../estrutura/menu.inc';
+require_once '../model/veiculo.inc';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,11 +21,10 @@ require_once '../estrutura/Funcoes.inc';
         <?php
         new \Estrutura\Menu();
         echo '<section class="area-veiculos">';
-        for ($int = 0; $int < 9; $int++) {
-            new \Estrutura\CardVeiculo();
+        for ($int = 0; $int < 3; $int++) {
+            new \Estrutura\CardVeiculo(new Veiculo('Hyundai', 'HB20', 2030));
         }
-        echo '
-      </section>';
+        echo '</section>';
         ?>
     </body>
 </html>
