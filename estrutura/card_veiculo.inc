@@ -11,31 +11,20 @@ class CardVeiculo {
 
     public function __construct(\Veiculo $oVeiculo) {
         ?>
-        <div class="card-veiculo">
-            <div class="image-area"> 
-                <img class="vehicle-image" src="../images/hb20.jpg"/>
+            <div class="card-veiculo">
+                <div class="image-area"> 
+                    <img class="vehicle-image" src="../images/hb20.jpg"/>
+                </div>
+                <div class="info">
+                    <span><?= $oVeiculo->getMarca() . ' ' . $oVeiculo->getModelo() . ' ' . $oVeiculo->getAno() ?></span>
+                </div>
+                <button class="btn-detalhes open-modal" onclick="abrirModal()">Agendar Visita</button> 
             </div>
-            <div class="info">
-                <span><?= $oVeiculo->getMarca() . ' ' .$oVeiculo->getModelo() . ' ' . $oVeiculo->getAno() ?></span>
-                <!--<table class="vehicle-info">-->
-<!--                    <tr>
-                        <td class="label"><span>Marca:</span></td>
-                        <td><span><?= $oVeiculo->getMarca() ?></span></td>
-                    </tr>
-                    <tr>
-                        <td class="label"><span>Modelo:</span></td>
-                        <td><span><?= $oVeiculo->getModelo() ?></span></td>
-                    </tr>
-                    <tr>
-                        <td class="label"><span>Ano:</span></td>
-                        <td><span><?= $oVeiculo->getAno() ?></span></td>
-                    </tr>-->
-                <!--</table>-->
+            <div class="bg-modal" id="modal">
+                <div class="modal">
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                </div>
             </div>
-            <a href="../pages/detalhes.php?codigo=<?= $oVeiculo->getCodigo() ?>">
-                <button class="btn-detalhes">Agendar Visita</button> 
-            </a>
-        </div>
         <?php
     }
 

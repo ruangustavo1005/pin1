@@ -15,7 +15,8 @@ require_once '../model/veiculo.inc';
         <title>Fusuan Motors</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' type='text/css' media='screen' href='../css/estoque.css'>
-        <script src='main.js'></script>
+        <link rel='stylesheet' type='text/css' media='screen' href='../css/card_veiculo.css'>
+        <script type="text/javascript" src="../js/modal.js"></script>
     </head>
     <body>
         <?php
