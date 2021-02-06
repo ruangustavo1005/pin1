@@ -14,15 +14,20 @@ require_once '../model/veiculo.inc';
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>Fusuan Motors</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='../css/home.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='../css/estoque.css'>
         <script src='main.js'></script>
     </head>
     <body>
         <?php
         new \Estrutura\Menu();
+        $aCarros = [
+            new Veiculo(1, 'Hyundai', 'HB20', 2010),
+            new Veiculo(2, 'Hyundai', 'HB20', 2020),
+            new Veiculo(3, 'Hyundai', 'HB20', 2030)
+        ];
         echo '<section class="area-veiculos">';
-        for ($int = 0; $int < 3; $int++) {
-            new \Estrutura\CardVeiculo(new Veiculo('Hyundai', 'HB20', 2030));
+        foreach ($aCarros as $oVeiculo) {
+            new \Estrutura\CardVeiculo($oVeiculo);
         }
         echo '</section>';
         ?>

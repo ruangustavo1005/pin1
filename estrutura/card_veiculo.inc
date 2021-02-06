@@ -16,8 +16,9 @@ class CardVeiculo {
                 <img class="vehicle-image" src="../images/hb20.jpg"/>
             </div>
             <div class="info">
-                <table class="vehicle-info">
-                    <tr>
+                <span><?= $oVeiculo->getMarca() . ' ' .$oVeiculo->getModelo() . ' ' . $oVeiculo->getAno() ?></span>
+                <!--<table class="vehicle-info">-->
+<!--                    <tr>
                         <td class="label"><span>Marca:</span></td>
                         <td><span><?= $oVeiculo->getMarca() ?></span></td>
                     </tr>
@@ -28,10 +29,12 @@ class CardVeiculo {
                     <tr>
                         <td class="label"><span>Ano:</span></td>
                         <td><span><?= $oVeiculo->getAno() ?></span></td>
-                    </tr>
-                </table>
+                    </tr>-->
+                <!--</table>-->
             </div>
-            <button class="btn-detalhes">+ Detalhes</button> 
+            <a href="../pages/detalhes.php?codigo=<?= $oVeiculo->getCodigo() ?>">
+                <button class="btn-detalhes">Agendar Visita</button> 
+            </a>
         </div>
         <?php
     }
