@@ -1,6 +1,6 @@
 <?php
 
-namespace Estrutura;
+namespace Estrutura\Componentes;
 
 /**
  * Classe para a Criação de Imagens Pequenas do Veículo

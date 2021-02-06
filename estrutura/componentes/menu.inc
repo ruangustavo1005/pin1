@@ -1,6 +1,6 @@
 <?php
 
-namespace Estrutura;
+namespace Estrutura\Componentes;
 
 /**
  * Classe do Menu
@@ -12,13 +12,13 @@ class Menu {
     public function __construct() {
         ?>
         <div class='logo'>
-            <a href="estoque.php"><img src="../images/logo.png" alt="Fusuan Motors"></a>
-            <span>Fusuan Motors</span>
+            <a href="estoque.php"><img src="../images/logoo.jpeg" alt="Fusuan Motors"></a>
         </div>
         <nav>
             <ul>
                 <li><a href="estoque.php">Estoque</a></li>
                 <li><a href="contato.php">Contato</a></li>
+                <span>SEU PRÓXIMO VEÍCULO ESTÁ AQUI!<span>
             </ul>
         </nav>
         <?php

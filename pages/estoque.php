@@ -1,7 +1,7 @@
 <?php
 
-require_once '../estrutura/card_veiculo.inc';
-require_once '../estrutura/menu.inc';
+require_once '../estrutura/componentes/card_veiculo.inc';
+require_once '../estrutura/componentes/menu.inc';
 require_once '../model/veiculo.inc';
 
 ?>
@@ -18,15 +18,21 @@ require_once '../model/veiculo.inc';
     </head>
     <body>
         <?php
-        new \Estrutura\Menu();
+        new \Estrutura\Componentes\Menu();
         $aCarros = [
             new Veiculo(1, 'Hyundai', 'HB20', 2010),
             new Veiculo(2, 'Hyundai', 'HB20', 2020),
-            new Veiculo(3, 'Hyundai', 'HB20', 2030)
+            new Veiculo(3, 'Hyundai', 'HB20', 2030),
+            new Veiculo(4, 'Hyundai', 'HB20', 2030),
+            new Veiculo(5, 'Hyundai', 'HB20', 2030),
+            new Veiculo(6, 'Hyundai', 'HB20', 2030),
+            new Veiculo(7, 'Hyundai', 'HB20', 2030),
+            new Veiculo(8, 'Hyundai', 'HB20', 2030),
+            new Veiculo(9, 'Hyundai', 'HB20', 2030)
         ];
         echo '<section class="area-veiculos">';
         foreach ($aCarros as $oVeiculo) {
-            new \Estrutura\CardVeiculo($oVeiculo);
+            new \Estrutura\Componentes\CardVeiculo($oVeiculo);
         }
         echo '</section>';
         ?>

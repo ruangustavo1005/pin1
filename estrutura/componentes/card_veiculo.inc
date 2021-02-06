@@ -1,6 +1,8 @@
 <?php
 
-namespace Estrutura;
+namespace Estrutura\Componentes;
+
+use View\ViewDetalhes;
 
 /**
  * Classe para a Criação de Cards de Veículos
@@ -23,6 +25,9 @@ class CardVeiculo {
             <div class="bg-modal" id="modal">
                 <div class="modal">
                     <span class="close" onclick="fecharModal()">&times;</span>
+                    <?php
+                        new ViewDetalhes();
+                    ?>
                 </div>
             </div>
         <?php
