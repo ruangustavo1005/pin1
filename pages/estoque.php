@@ -1,7 +1,5 @@
 <?php
 
-require_once '../estrutura/funcoes.inc';
-require_once '../estrutura/base.inc';
 require_once '../estrutura/card_veiculo.inc';
 require_once '../estrutura/menu.inc';
 require_once '../model/veiculo.inc';
