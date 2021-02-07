@@ -14,7 +14,7 @@ html,body {
     background: rgba(0,0,0, 0.75);
     position:fixed;
     z-index: 2;
-    top: -100%;
+    /*top: -100%;*/
     display: block;
     transition: 600ms;
 }

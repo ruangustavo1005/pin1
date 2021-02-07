@@ -1,0 +1,3 @@
+function alterImage() {
+    var oMainImg = '';
+}

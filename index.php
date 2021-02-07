@@ -6,9 +6,7 @@
     </head>
     <body>
         <?php
-        $oTag = new Estrutura\Tag('div', 'teste');
-        $oTag->addAtributo('border', '1');
-        echo $oTag->getHtml();
+		phpinfo();
         ?>
     </body>
 </html>

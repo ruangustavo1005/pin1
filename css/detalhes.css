@@ -9,7 +9,6 @@
     height: 600px;
     border: solid black 1px;
     float:left;
-    margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -18,11 +17,10 @@
     margin-left: 40px;
 }
 
-.vehicle-image {
+.vehicle-image-info {
     width: 508px;
     height: 500px;
     border: solid black 1px;
-    margin-top: 50px;
 }
 
 .small-image {
@@ -42,7 +40,48 @@
     height: 100px;
 }
 
-.vehicle-image img {
+.vehicle-image-info img {
     width: 508px;
     height: 500px;
+}
+
+#slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#slider img{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 800ms;
+}
+
+#slider img.selected { 
+    opacity: 1;
+}
+
+.prev-btn {
+    float:left;
+}
+
+.next-btn {
+    float:right;
+}
+
+.btn_imgs {
+    width: 50%;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+.vehicle-area-images h3 {
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    text-align:center;
 }

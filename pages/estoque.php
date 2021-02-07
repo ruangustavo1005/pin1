@@ -1,8 +1,14 @@
 <?php
 
 require_once '../estrutura/componentes/card_veiculo.inc';
+require_once '../estrutura/componentes/veiculo_miniatura.inc';
 require_once '../estrutura/componentes/menu.inc';
+require_once '../estrutura/query.inc';
+require_once '../view/view_detalhes.inc';
 require_once '../model/veiculo.inc';
+require_once '../model/modelo.inc';
+require_once '../model/marca.inc';
+
 
 ?>
 <!DOCTYPE html>
@@ -14,25 +20,21 @@ require_once '../model/veiculo.inc';
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' type='text/css' media='screen' href='../css/estoque.css'>
         <link rel='stylesheet' type='text/css' media='screen' href='../css/card_veiculo.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='../css/detalhes.css'>
+        <script type="text/javascript" src="../js/detalhes.js"></script>
         <script type="text/javascript" src="../js/modal.js"></script>
     </head>
     <body>
         <?php
+        new Query();
+        
         new \Estrutura\Componentes\Menu();
         $aCarros = [
-            new Veiculo(1, 'Hyundai', 'HB20', 2010),
-            new Veiculo(2, 'Hyundai', 'HB20', 2020),
-            new Veiculo(3, 'Hyundai', 'HB20', 2030),
-            new Veiculo(4, 'Hyundai', 'HB20', 2030),
-            new Veiculo(5, 'Hyundai', 'HB20', 2030),
-            new Veiculo(6, 'Hyundai', 'HB20', 2030),
-            new Veiculo(7, 'Hyundai', 'HB20', 2030),
-            new Veiculo(8, 'Hyundai', 'HB20', 2030),
-            new Veiculo(9, 'Hyundai', 'HB20', 2030)
+            new \Veiculo(new Modelo(new Marca(1, 'Hyundai'), 1, 1990, 'HB20 Confort Style 1.0'), 'SOL-1234', 2021, 'Branco', '', 'R$120.000', 0)
         ];
         echo '<section class="area-veiculos">';
         foreach ($aCarros as $oVeiculo) {
-            new \Estrutura\Componentes\CardVeiculo($oVeiculo);
+            new Estrutura\Componentes\CardVeiculo($oVeiculo);
         }
         echo '</section>';
         ?>

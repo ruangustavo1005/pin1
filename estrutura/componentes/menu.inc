@@ -18,7 +18,7 @@ class Menu {
             <ul>
                 <li><a href="estoque.php">Estoque</a></li>
                 <li><a href="contato.php">Contato</a></li>
-                <span>SEU PRÓXIMO VEÍCULO ESTÁ AQUI!<span>
+                <!--<span>SEU PRÓXIMO VEÍCULO ESTÁ AQUI!<span>-->
             </ul>
         </nav>
         <?php

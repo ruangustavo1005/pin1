@@ -2,8 +2,6 @@
 
 namespace Estrutura\Componentes;
 
-use View\ViewDetalhes;
-
 /**
  * Classe para a Criação de Cards de Veículos
  *
@@ -18,7 +16,7 @@ class CardVeiculo {
                     <img class="vehicle-image" src="../images/hb20.jpg"/>
                 </div>
                 <div class="info">
-                    <span><?= $oVeiculo->getMarca() . ' ' . $oVeiculo->getModelo() . ' ' . $oVeiculo->getAno() ?></span>
+                    <span><?= $oVeiculo->getModelo()->getMarca()->getNome() . ' ' . $oVeiculo->getModelo()->getNome() . ' ' . $oVeiculo->getAnoFabricacao() ?></span>
                 </div>
                 <button class="btn-detalhes open-modal" onclick="abrirModal()">Agendar Visita</button> 
             </div>
@@ -26,7 +24,7 @@ class CardVeiculo {
                 <div class="modal">
                     <span class="close" onclick="fecharModal()">&times;</span>
                     <?php
-                        new ViewDetalhes();
+                        new \ViewDetalhes($oVeiculo);
                     ?>
                 </div>
             </div>
