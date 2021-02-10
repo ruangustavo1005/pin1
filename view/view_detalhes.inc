@@ -13,9 +13,11 @@ class ViewDetalhes {
             <section class="vehicle-area-images">
                 <div class="vehicle-image-info">
                     <div id="slider">
-                        <img class="img_slide selected" src="../images/hb20.jpg">
-                        <img class="img_slide" src="../images/monki-flip.jpg">
-                        <img class="img_slide" src="../images/car.png">
+                        <?php
+                            foreach($oVeiculo->getImagens() as $oImg) {
+                                echo "<img class=\"img_slide selected\" src='data:image/jpeg;base64, {$oImg->getConteudo()}'/>";
+                            }
+                        ?>
                     </div>
                 </div>
                 <button class="btn_imgs prev-btn" onclick="prevImage()"><</button>
@@ -24,7 +26,6 @@ class ViewDetalhes {
             </section>
             <section class="vehicle-info-area">
                 <?php $this->criaTabelaHorarios() ?>
-
             </section>
         </div>
         <?php

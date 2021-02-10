@@ -13,7 +13,11 @@ class CardVeiculo {
         ?>
             <div class="card-veiculo">
                 <div class="image-area"> 
-                    <img class="vehicle-image" src="../images/hb20.jpg"/>
+                    <?php
+                        if(sizeof($oVeiculo->getImagens()) > 0) {
+                            echo "<img class=\"vehicle-image\" src='data:image/jpeg;base64, {$oVeiculo->getImagens()[0]->getConteudo()}'/>";
+                        }
+                    ?>
                 </div>
                 <div class="info">
                     <span><?= $oVeiculo->getModelo()->getMarca()->getNome() . ' ' . $oVeiculo->getModelo()->getNome() . ' ' . $oVeiculo->getAnoFabricacao() ?></span>

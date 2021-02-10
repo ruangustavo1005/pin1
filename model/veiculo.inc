@@ -1,11 +1,14 @@
 <?php
 
 /**
- * Modelo do veículo
+ * Modelo do Veículo
  *
  * @author Leonardo Alex Fusinato
  */
 class Veiculo {
+    
+    /** @var ImagemCarro[] */
+    private $Imagens;
     
     /** @var \Modelo */
     private $Modelo;
@@ -16,8 +19,10 @@ class Veiculo {
     private $observacao;
     private $preco;
     private $quilometragem;
+    private $situacao;
     
-    public function __construct(\Modelo $Modelo = null, $placa = null, $anoFabricacao = null, $cor = null, $observacao = null, $preco = null, $quilometragem = null) {
+    public function __construct(\Modelo $Modelo = null, $placa = null, $anoFabricacao = null, $cor = null, $observacao = null, $preco = null, $quilometragem = null, $situacao = null) {
+        $this->Imagens = [];
         $this->Modelo = $Modelo;
         $this->placa = $placa;
         $this->anoFabricacao = $anoFabricacao;
@@ -25,9 +30,13 @@ class Veiculo {
         $this->observacao = $observacao;
         $this->preco = $preco;
         $this->quilometragem = $quilometragem;
+        $this->situacao = $situacao;
     }
     
     public function getModelo(): \Modelo {
+        if(!isset($this->Modelo)) {
+            $this->Modelo =  new Modelo();
+        }
         return $this->Modelo;
     }
 
@@ -54,7 +63,11 @@ class Veiculo {
     public function getQuilometragem() {
         return $this->quilometragem;
     }
-
+    
+    public function getSituacao() {
+        return $this->situacao;
+    }
+    
     public function setModelo(\Modelo $Modelo): void {
         $this->Modelo = $Modelo;
     }
@@ -81,6 +94,28 @@ class Veiculo {
 
     public function setQuilometragem($quilometragem): void {
         $this->quilometragem = $quilometragem;
+    }
+    
+    public function setSituacao($situacao): void {
+        $this->situacao = $situacao;
+    }
+    
+    public function getImagens() {
+        return $this->Imagens;
+    }
+    
+    /**
+     * Adiciona uma nova imagem ao veiculo
+     */
+    public function newImagem($iCodigo, $sConteudo) {
+        $this->Imagens[] = new ImagemCarro($this, $iCodigo, $sConteudo); 
+    }
+    
+    /**
+     * Limpa o array de imagens do veículo
+     */
+    public function resetImagens() {
+        $this->Imagens = [];
     }
 
 }

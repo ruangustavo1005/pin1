@@ -12,7 +12,7 @@ class Menu {
     public function __construct() {
         ?>
         <div class='logo'>
-            <a href="estoque.php"><img src="../images/logoo.jpeg" alt="Fusuan Motors"></a>
+            <a href="estoque.php"><img src="./images/logoo.jpeg" alt="Fusuan Motors"></a>
         </div>
         <nav>
             <ul>

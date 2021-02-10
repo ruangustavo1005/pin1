@@ -13,6 +13,12 @@ class ImagemCarro {
     private $codigo;
     private $conteudo;
     
+    public function __construct(\Veiculo $Veiculo, $codigo, $conteudo) {
+        $this->Veiculo = $Veiculo;
+        $this->codigo = $codigo;
+        $this->conteudo = $conteudo;
+    }
+    
     public function getVeiculo(): \Veiculo {
         return $this->Veiculo;
     }

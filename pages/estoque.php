@@ -9,7 +9,6 @@ require_once '../model/veiculo.inc';
 require_once '../model/modelo.inc';
 require_once '../model/marca.inc';
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,9 +27,9 @@ require_once '../model/marca.inc';
         <?php
         new Query();
         
-        new \Estrutura\Componentes\Menu();
+        
         $aCarros = [
-            new \Veiculo(new Modelo(new Marca(1, 'Hyundai'), 1, 1990, 'HB20 Confort Style 1.0'), 'SOL-1234', 2021, 'Branco', '', 'R$120.000', 0)
+            
         ];
         echo '<section class="area-veiculos">';
         foreach ($aCarros as $oVeiculo) {
