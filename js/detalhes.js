@@ -2,7 +2,6 @@ let time              = 1000,
     currentImageIndex = 0;
 
 function nextImage() {
-    debugger;
     var images = document.getElementsByClassName("img_slide"),
         max    = images.length;
     
@@ -18,7 +17,6 @@ function nextImage() {
 }
 
 function prevImage() {
-    debugger;
     var images = document.getElementsByClassName("img_slide"),
         max    = images.length;
         
@@ -26,7 +24,7 @@ function prevImage() {
     
     currentImageIndex--;
 
-    if (currentImageIndex <= 0) {
+    if (currentImageIndex < 0) {
         currentImageIndex = max - 1;
     }
     
