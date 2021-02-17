@@ -9,6 +9,7 @@
         <link rel='stylesheet' type='text/css' media='screen' href='./css/detalhes.css'>
         <script type="text/javascript" src="./js/detalhes.js"></script>
         <script type="text/javascript" src="./js/modal.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
 <?php

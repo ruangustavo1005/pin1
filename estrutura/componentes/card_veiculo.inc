@@ -23,15 +23,7 @@ class CardVeiculo {
                     <span><?= $oVeiculo->getModelo()->getMarca()->getNome() . ' ' . $oVeiculo->getModelo()->getNome() . ' ' . $oVeiculo->getAnoFabricacao() ?></span><br>
                     <span><?= 'R$'.$oVeiculo->getPreco() ?></span>
                 </div>
-                <button class="btn-detalhes open-modal" onclick="abrirModal()">Agendar Visita</button> 
-            </div>
-            <div class="bg-modal" id="modal">
-                <div class="modal">
-                    <span class="close" onclick="fecharModal()">&times;</span><br>
-                    <?php
-                        new \ViewDetalhes($oVeiculo);
-                    ?>
-                </div>
+                <button class="btn-detalhes open-modal" id="<?=$oVeiculo->getPlaca()?>" onclick="abrirDetalhes(<?=$oVeiculo->getPlaca()?>)">Agendar Visita</button> 
             </div>
         <?php
     }

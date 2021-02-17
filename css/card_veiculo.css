@@ -14,7 +14,6 @@ html,body {
     background: rgba(0,0,0, 0.75);
     position:fixed;
     z-index: 2;
-    top: -100%;
     display: block;
     transition: 600ms;
 }
@@ -25,7 +24,7 @@ html,body {
     background-color: #fff;
     border: 1px solid #000;
     border-radius: 5px;
-    margin: 80px auto 0 auto;
+    margin: 20px auto 0 auto;
     transition: 600ms;
 }
 

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'imagem_carro.inc';
+
 /**
  * Modelo do Veículo
  *

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'persistencia.inc';
+
 /**
  * Persistência do Veículo
  *
@@ -57,6 +59,40 @@ class PersistenciaVeiculo extends Persistencia {
         foreach ($oSql->fetchAll(PDO::FETCH_OBJ) as $oObject) {
             $oVeiculo->newImagem($oObject->ftvcodigo, $oObject->foto);
         }
+    }
+    
+    /**
+     * Retorna o veículo através da placa informada por parâmetro
+     * 
+     * @param String $sPlaca
+     * @return \Veiculo
+     */
+    public function getVeiculoFromPlaca($sPlaca) {
+        $sSql = "
+           SELECT *
+             FROM tbveiculo
+             LEFT JOIN tbmodelo 
+               ON tbmodelo.modcodigo = tbveiculo.modcodigo
+             LEFT JOIN tbmarca 
+               ON tbmarca.marcodigo = tbmodelo.marcodigo
+            WHERE tbveiculo.veiplaca = '$sPlaca'
+        ";
+        $oVeiculo = new Veiculo();
+        $oSql = $this->Query->query($sSql);
+        while ($oObject = $oSql->fetch(PDO::FETCH_OBJ)) {
+            $oVeiculo->setPlaca($oObject->veiplaca);
+            $oVeiculo->getModelo()->setCodigo($oObject->modcodigo);
+            $oVeiculo->getModelo()->setNome($oObject->modnome);
+            $oVeiculo->getModelo()->getMarca()->setCodigo($oObject->marcodigo);
+            $oVeiculo->getModelo()->getMarca()->setNome($oObject->marnome);
+            $oVeiculo->setAnoFabricacao($oObject->veianofabricacao);
+            $oVeiculo->setCor($oObject->veicor);
+            $oVeiculo->setPreco($oObject->veipreco);
+            $oVeiculo->setQuilometragem($oObject->veiquilometragem);
+            $oVeiculo->setObservacao($oObject->veiobservacao);
+            $oVeiculo->setSituacao($oObject->veisituacao);
+        }
+        return $oVeiculo;
     }
     
 }

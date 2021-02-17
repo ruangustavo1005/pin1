@@ -8,7 +8,7 @@
 class ViewEstoque {
  
     public function __construct($aVeiculos) {
-        echo '<section class="area-veiculos">';
+        echo '<section class="area-veiculos", id="main-section">';
         if(sizeof($aVeiculos) > 0){
             foreach ($aVeiculos as $oVeiculo) {
                 new Estrutura\Componentes\CardVeiculo($oVeiculo);

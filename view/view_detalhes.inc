@@ -6,34 +6,34 @@
  * @author Leonardo Alex Fusinato
  */
 class ViewDetalhes {
-
-    public function __construct(\Veiculo $oVeiculo) {
-        ?>
+    
+    public function getHtml($oVeiculo) {
+        $sHtml = '
+        <span class="close" onclick="closeDetails()">&times;</span>
         <div class="main">
             <section class="vehicle-area-images">
                 <div class="vehicle-image-info">
-                    <div id="slider">
-                        <?php
-                            for($i = 0; $i < sizeof($oVeiculo->getImagens()); $i++) {
-                                if($i == 0) {
-                                    echo "<img class=\"img_slide selected\" src='data:image/jpeg;base64, {$oVeiculo->getImagens()[$i]->getConteudo()}'/>";
-                                } else {
-                                    echo "<img class=\"img_slide\" src='data:image/jpeg;base64, {$oVeiculo->getImagens()[$i]->getConteudo()}'/>";
-                                }
-                            }
-                        ?>
-                    </div>
+                    <div id="slider">';
+        for($i = 0; $i < sizeof($oVeiculo->getImagens()); $i++) {
+            if($i == 0) {
+                $sHtml .= "<img class=\"img_slide selected\" src=\"data:image/jpeg;base64, {$oVeiculo->getImagens()[$i]->getConteudo()}\"/>";
+            } else {
+                $sHtml .= "<img class=\"img_slide\" src=\"data:image/jpeg;base64, {$oVeiculo->getImagens()[$i]->getConteudo()}\"/>";
+            }
+        }
+        $sHtml .='  </div>
                 </div>
                 <button class="btn_imgs prev-btn" onclick="prevImage()"><</button>
                 <button class="btn_imgs next-btn" onclick="nextImage()">></button>
-                <h3><?= $oVeiculo->getModelo()->getMarca()->getNome() . ' ' . $oVeiculo->getModelo()->getNome() . ' ' . $oVeiculo->getAnoFabricacao() ?></h3>
-                <h3><?= 'R$'. $oVeiculo->getPreco()?></h3>
+                <h3>'.$oVeiculo->getModelo()->getMarca()->getNome() . ' ' . $oVeiculo->getModelo()->getNome() . ' ' . $oVeiculo->getAnoFabricacao().' </h3>
+                <h3><?= \'R$\'' . $oVeiculo->getPreco().'</h3>
             </section>
             <section class="vehicle-info-area">
-                <?php $this->criaTabelaHorarios() ?>
+                
             </section>
         </div>
-        <?php
+        ';
+        return $sHtml;
     }
 
     private function criaTabelaHorarios() {
