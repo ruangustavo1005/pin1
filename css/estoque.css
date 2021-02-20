@@ -81,3 +81,20 @@ nav a:hover {
 .label {
     float:right;
 }
+
+.btn-menu {
+    float: right; 
+    cursor: pointer;    
+    height: 78px;
+    margin-left: 3px;
+}
+
+.search-div {
+    width: 30%;
+    height: 76px;
+    background: white;
+    border: 1px solid #333;
+    z-index: 1;
+    float: right;
+    display: flex;
+}
