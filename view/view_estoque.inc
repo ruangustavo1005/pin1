@@ -7,14 +7,29 @@
  */
 class ViewEstoque {
  
-    public function __construct($aVeiculos) {
-        echo '<section class="area-veiculos", id="main-section">';
+    public function __construct($aVeiculos, $bLoad = true) {
+        if($bLoad) {
+            echo '<section class="area-veiculos", id="main-section">';
+            if(sizeof($aVeiculos) > 0){
+                foreach ($aVeiculos as $oVeiculo) {
+                    new Estrutura\Componentes\CardVeiculo($oVeiculo);
+                }
+            }
+            echo '</section>';
+        }
+    }
+    
+    public function getHtml($aVeiculos) {
+//        $sHtml = '<section class="area-veiculos", id="main-section">';
+        $sHtml = '';
         if(sizeof($aVeiculos) > 0){
             foreach ($aVeiculos as $oVeiculo) {
-                new Estrutura\Componentes\CardVeiculo($oVeiculo);
+                $oCard = new Estrutura\Componentes\CardVeiculo($oVeiculo);
+                $sHtml .= $oCard->getHtml();
             }
         }
-        echo '</section>';
+//        $sHtml .= '</section>';
+        return $sHtml;
     }
     
 }

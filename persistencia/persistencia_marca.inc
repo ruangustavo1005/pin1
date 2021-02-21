@@ -3,7 +3,6 @@
 require_once 'persistencia.inc';
 require_once '../model/marca.inc';
 
-
 /**
  * Persistência da Marca
  *

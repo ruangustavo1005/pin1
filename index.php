@@ -7,6 +7,7 @@
         <link rel='stylesheet' type='text/css' media='screen' href='./css/estoque.css'>
         <link rel='stylesheet' type='text/css' media='screen' href='./css/card_veiculo.css'>
         <link rel='stylesheet' type='text/css' media='screen' href='./css/detalhes.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='./css/search.css'>
         <script type="text/javascript" src="./js/detalhes.js"></script>
         <script type="text/javascript" src="./js/modal.js"></script>
         <script type="text/javascript" src="./js/menu.js"></script>
@@ -33,8 +34,11 @@ require_once './model/marca.inc';
 require_once './model/imagem_carro.inc';
 
 new \Estrutura\Componentes\Menu();
+echo '<section class="area-veiculos", id="main-section">';
+$oController = new ControllerEstoque();
+echo $oController->getHtml();
+echo '</section>';
 
-new ControllerEstoque();
 ?>
 </body>
 </html>
