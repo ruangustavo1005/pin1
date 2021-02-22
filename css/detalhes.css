@@ -118,3 +118,30 @@ legend {
     font-weight: 600;
     font-size: 20px;
 }
+
+.list-obs {
+  position:relative; 
+  margin:0;          
+  padding:0;
+  width:100%;        
+  height:100%;       
+}
+
+.list-obs li {
+  display:block;             
+  list-style-type: none;     
+  margin:0;                  
+  box-sizing: border-box;    
+  height:25%;                
+}
+
+.list-obs li:nth-child(odd) {          
+  clear:both;                
+  float:left;                
+  width:50%;                 
+}
+
+.list-obs li:nth-child(4n+2),          
+.list-obs li:nth-child(4n+3) {         
+  background-color:#444;     
+}

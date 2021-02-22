@@ -17,7 +17,7 @@ class Menu {
         <nav id="nav">
             <ul>
                 <li><a href="index.php">Estoque</a></li>
-                <li><a href="contato.php">Contato</a></li>
+                <li><a href="#">Contato</a></li>
             </ul>
             <button class="btn-menu" onclick="openSearch()">
                 <img style="width: 70px; float:right" src="./images/search.png">

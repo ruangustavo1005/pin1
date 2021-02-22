@@ -68,7 +68,13 @@ class ViewDetalhes {
                         </tr>
                         <tr>
                             <td class="label">Observações:</td>
-                            <td class="value">'.$oVeiculo->getObservacao().'</td>
+                            <td class="value">
+                                <ul class"list-obs" style="padding-left: 25px;">';
+        foreach(explode(';', $oVeiculo->getObservacao()) as $sObs) {
+            $sHtml .= '<li>'.$sObs.'</li>';
+        }
+        $sHtml .='              </ul>
+                            </td>
                         </tr>
                     </table>
                 </fieldset>';
