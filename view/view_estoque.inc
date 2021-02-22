@@ -20,7 +20,6 @@ class ViewEstoque {
     }
     
     public function getHtml($aVeiculos) {
-//        $sHtml = '<section class="area-veiculos", id="main-section">';
         $sHtml = '';
         if(sizeof($aVeiculos) > 0){
             foreach ($aVeiculos as $oVeiculo) {
@@ -28,7 +27,6 @@ class ViewEstoque {
                 $sHtml .= $oCard->getHtml();
             }
         }
-//        $sHtml .= '</section>';
         return $sHtml;
     }
     

@@ -65,7 +65,7 @@ class ControllerEstoque {
         if($sFilter == 'marca') {
             $aVeiculos = $this->getPersistenciaVeiculo()->getVeiculosFromMarca($sFilterValue);
         } else {
-            
+            $aVeiculos = $this->getPersistenciaVeiculo()->getVeiculosFromModelo($sFilterValue);
         }
         foreach ($aVeiculos as $oVeiculo) {
             $this->getPersistenciaVeiculo()->getAllImagensFromVeiculo($oVeiculo);

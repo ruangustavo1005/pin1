@@ -134,4 +134,43 @@ class PersistenciaVeiculo extends Persistencia {
         return $aVeiculos;
     }
     
+    /**
+     * Retorna os veículos a partir do modelo
+     * 
+     * @param Integer $iCodigo
+     * @return \Veiculo[]
+     */
+    public function getVeiculosFromModelo($iCodigo) {
+        $sSql = "
+           SELECT *
+             FROM tbveiculo
+             LEFT JOIN tbmodelo 
+               ON tbmodelo.modcodigo = tbveiculo.modcodigo
+             LEFT JOIN tbmarca 
+               ON tbmarca.marcodigo = tbmodelo.marcodigo
+            WHERE tbveiculo.veisituacao = 1
+              AND tbmodelo.modcodigo = :codigoModelo
+        ";
+        $aVeiculos = [];
+        $oSql = $this->Query->prepare($sSql);
+        $oSql->bindValue(':codigoModelo', $iCodigo);
+        $oSql->execute();
+        foreach ($oSql->fetchAll(PDO::FETCH_OBJ) as $oObject) {
+            $oVeiculo = new Veiculo();
+            $oVeiculo->setPlaca($oObject->veiplaca);
+            $oVeiculo->getModelo()->setCodigo($oObject->modcodigo);
+            $oVeiculo->getModelo()->setNome($oObject->modnome);
+            $oVeiculo->getModelo()->getMarca()->setCodigo($oObject->marcodigo);
+            $oVeiculo->getModelo()->getMarca()->setNome($oObject->marnome);
+            $oVeiculo->setAnoFabricacao($oObject->veianofabricacao);
+            $oVeiculo->setCor($oObject->veicor);
+            $oVeiculo->setPreco($oObject->veipreco);
+            $oVeiculo->setQuilometragem($oObject->veiquilometragem);
+            $oVeiculo->setObservacao($oObject->veiobservacao);
+            $oVeiculo->setSituacao($oObject->veisituacao);
+            $aVeiculos[] = $oVeiculo;
+        }
+        return $aVeiculos;
+    }
+    
 }

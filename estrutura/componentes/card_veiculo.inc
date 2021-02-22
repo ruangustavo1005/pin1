@@ -27,7 +27,7 @@ class CardVeiculo {
                     <span> '.$this->Veiculo->getModelo()->getMarca()->getNome() . ' ' . $this->Veiculo->getModelo()->getNome() . ' ' . $this->Veiculo->getAnoFabricacao() .'</span><br>
                     <span> R$ '.$this->Veiculo->getPreco().' </span>
                 </div>
-                <button class="btn-detalhes open-modal" id="'.$this->Veiculo->getPlaca().'" onclick="abrirDetalhes(\''.$this->Veiculo->getPlaca().'\')">Agendar Visita</button> 
+                <button class="btn-detalhes open-modal" id="'.$this->Veiculo->getPlaca().'" onclick="abrirDetalhes('.$this->Veiculo->getPlaca().')">Agendar Visita</button> 
             </div>';
         return $sHtml;
     }
