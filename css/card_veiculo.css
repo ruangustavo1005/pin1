@@ -49,6 +49,11 @@ html,body {
     margin-top: 50px;
     margin-left: 80px;
     float:left;
+    transition: box-shadow 0.3s;
+}
+
+.card-veiculo:hover {
+    box-shadow: 7px 5px 5px rgba(0,0,0, 0.75);
 }
 
 .image-area {

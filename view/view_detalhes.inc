@@ -31,6 +31,7 @@ class ViewDetalhes {
             <section class="vehicle-info-area">';
         $sHtml .= $this->criaTabelaDetalhes($oVeiculo);
         $sHtml .= $this->criaTabelaHorarios();
+        $sHtml .= $this->criaFormAgendamento();
         $sHtml .= ' </section>
               </div>';
             
@@ -84,7 +85,7 @@ class ViewDetalhes {
     private function criaTabelaHorarios() {
        $sHtml ='
         <fieldset class="fieldset">
-            <legend>Agende sua Visita</legend>
+            <legend>Agende sua visita</legend>
             <table class="tb-horarios" border="1px solid black">
                 <tr>
                     <th></th><th>Domingo</th><th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th><th>Sábado</th>
@@ -96,6 +97,28 @@ class ViewDetalhes {
         </fieldset>
         ';
        return $sHtml;
+    }
+    
+    private function criaFormAgendamento() {
+        $sHtml = '
+            <div class="container">
+            <fieldset class="fieldset agendamento">
+                <table class="details-table">
+                    <tr>
+                        <td class="label">Nome:</td>
+                        <td class="value"><input type="text"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="label">Email:</td>
+                        <td class="value"><input type="email"></td>
+                    </tr>
+                </table>
+                <button class="agendamento-btn">Agendar</button>
+            </fieldset>
+            </div>
+        ';
+        return $sHtml;
     }
 
 }

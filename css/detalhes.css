@@ -105,9 +105,11 @@
     padding: 1em;
     float: left;
     font-family: Arial;
-    border-left: none;
-    border-right: none;
+    margin-top: 10px;
+    border:none;
     width: 95.6%;
+    background: #f5f9ff;
+    box-shadow: 2px 2px 3px rgba(0,0,0, 0.75);
 }
 
 legend {
@@ -144,4 +146,43 @@ legend {
 .list-obs li:nth-child(4n+2),          
 .list-obs li:nth-child(4n+3) {         
   background-color:#444;     
+}
+
+.agendamento {
+    margin-top: 20px;
+    width: min-content;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: none;
+}
+
+.agendamento-btn {
+    padding: 10px;
+    font-family: Arial;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10px;
+    background: white;
+    width: 200px;
+    border-radius: 3px;
+    border: 2px solid #4CAF50;
+    transition: 0.5s;
+}
+
+.agendamento-btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #4CAF50;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    width: 300px;
+    
 }
