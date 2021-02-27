@@ -90,13 +90,24 @@
 .tb-horarios {
     width: 100%;
     border-collapse: collapse;
+    text-align: center;
+}
+
+.tb-horarios td {
+    border-left: 1px solid #f5f9ff; 
+    border-bottom: 1px solid #f5f9ff;
+    border-top: none;
+}
+
+.tb-horarios th {
+    border-bottom: none;
 }
 
 .details-table {
     font-family: Arial;
 }
 
-.label {
+.label {    
     text-align: right;
     font-weight: 600;
 }

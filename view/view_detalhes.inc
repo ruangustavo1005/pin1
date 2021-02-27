@@ -7,7 +7,7 @@
  */
 class ViewDetalhes {
     
-    public function getHtml($oVeiculo) {
+    public function getHtml($oVeiculo, $aHorarios) {
         $sHtml = '
         <span class="close" onclick="closeDetails()">&times;</span>
         <div class="main">
@@ -30,7 +30,7 @@ class ViewDetalhes {
             </section>
             <section class="vehicle-info-area">';
         $sHtml .= $this->criaTabelaDetalhes($oVeiculo);
-        $sHtml .= $this->criaTabelaHorarios();
+        $sHtml .= $this->criaTabelaHorarios($aHorarios);
         $sHtml .= $this->criaFormAgendamento();
         $sHtml .= ' </section>
               </div>';
@@ -82,21 +82,28 @@ class ViewDetalhes {
         return $sHtml;
     }
 
-    private function criaTabelaHorarios() {
-       $sHtml ='
-        <fieldset class="fieldset">
+    private function criaTabelaHorarios($aHorarios) {
+       $sHtml = "
+        <fieldset class=\"fieldset\">
             <legend>Agende sua visita</legend>
-            <table class="tb-horarios" border="1px solid black">
+            <table class=\"tb-horarios\" border=\"1px solid black\">
                 <tr>
-                    <th></th><th>Domingo</th><th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th><th>Sábado</th>
-                </tr>
-                <tr>
-                    <td>08:00</td>
-                </tr>
-            </table>
-        </fieldset>
-        ';
-       return $sHtml;
+                    <th></th><th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th>
+                </tr>";
+       for($i = 1; $i <= 9; $i++) {
+            $sMethod = "getHora$i";
+            $sHtml .= '<tr><td>'.PersistenciaAgendamento::ATRIBUTO_HORARIO[$i].'</td>';
+            for ($j = 0; $j <= 4; $j++) {
+                $sSituacao = $aHorarios[$j]->$sMethod();
+                $sCor = $sSituacao == 'Disponível' ? 'green' : 'red';
+                $sHtml .= "<td style=\"background-color: $sCor;\">$sSituacao</td>";
+            }
+            $sHtml .= "</tr>";
+       }
+       $sHtml .= "</table>
+        </fieldset>";
+            
+        return $sHtml;
     }
     
     private function criaFormAgendamento() {
