@@ -99,6 +99,10 @@
     border-top: none;
 }
 
+.selecionavel {
+    cursor: pointer;
+}
+
 .tb-horarios th {
     border-bottom: none;
 }
@@ -195,5 +199,17 @@ legend {
 
 input {
     width: 300px;
-    
+}
+
+.selected-image {
+    background-color: white;
+}
+
+.selecionavel {
+    background-color: green;
+}
+
+.n-selecionavel {
+    background-color: red;
+    cursor: not-allowed;
 }

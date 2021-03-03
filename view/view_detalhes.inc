@@ -47,6 +47,10 @@ class ViewDetalhes {
         $sHtml = '<fieldset class="fieldset">
                     <legend>Detalhes</legend>
                     <table class="details-table">
+                        <tr style="display:none">
+                            <td class="label">Placa:</td>
+                            <td class="value" id="placa">'.$oVeiculo->getPlaca().'</td>
+                        </tr>
                         <tr>
                             <td class="label">Marca:</td>
                             <td class="value">'.$oVeiculo->getModelo()->getMarca()->getNome().'</td>
@@ -95,8 +99,10 @@ class ViewDetalhes {
             $sHtml .= '<tr><td>'.PersistenciaAgendamento::ATRIBUTO_HORARIO[$i].'</td>';
             for ($j = 0; $j <= 4; $j++) {
                 $sSituacao = $aHorarios[$j]->$sMethod();
-                $sCor = $sSituacao == 'Disponível' ? 'green' : 'red';
-                $sHtml .= "<td style=\"background-color: $sCor;\">$sSituacao</td>";
+                $sClass = $sSituacao == 'Disponível' ? 'selecionavel' : 'n-selecionavel';
+                $sHtml .= "<td id=\"{$aHorarios[$j]->getDia()}_".PersistenciaAgendamento::ATRIBUTO_HORARIO[$i]."}\"
+                            class=\"$sClass\"
+                            onclick=\"selectHorario(this)\">$sSituacao</td>";
             }
             $sHtml .= "</tr>";
        }
@@ -113,15 +119,26 @@ class ViewDetalhes {
                 <table class="details-table">
                     <tr>
                         <td class="label">Nome:</td>
-                        <td class="value"><input type="text"></td>
-
+                        <td class="value"><input id="nome" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">CPF:</td>
+                        <td class="value"><input id="cpf" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Data de Nascimento:</td>
+                        <td class="value"><input id="nascimento" type="date"></td>
                     </tr>
                     <tr>
                         <td class="label">Email:</td>
-                        <td class="value"><input type="email"></td>
+                        <td class="value"><input id="email" type="email"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Telefone:</td>
+                        <td class="value"><input id="telefone" type="text"></td>
                     </tr>
                 </table>
-                <button class="agendamento-btn">Agendar</button>
+                <button class="agendamento-btn" onClick="realizaAgendamento()">Agendar</button>
             </fieldset>
             </div>
         ';
