@@ -70,8 +70,10 @@ function realizaAgendamento() {
             success: function (oRes) {
                 if (oRes) {
                     $('.bg-modal').append(oRes);
-//                    oSelected.setAttribute('class', 'n-selecionavel');
-//                    oSelected.innerHTML = 'Cheio';
+                    if(oRes.search('success') !== -1) {
+                        oSelected.setAttribute('class', 'n-selecionavel');
+                        oSelected.innerHTML = 'Cheio';
+                    }
                     setTimeout(function() {
                         $('.container-msg-success').remove();
                         $('.container-msg-fail').remove();
