@@ -23,4 +23,13 @@ class DateUtil {
         return $aDatas;
     }
     
+    /**
+     * Retorna a data/hora atual
+     * 
+     * @return String
+     */
+    public static function currentTimestamp() {
+        return date('d/m/Y H:i:s');
+    }
+    
 }

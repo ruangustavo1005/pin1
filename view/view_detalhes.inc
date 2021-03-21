@@ -100,7 +100,7 @@ class ViewDetalhes {
             for ($j = 0; $j <= 4; $j++) {
                 $sSituacao = $aHorarios[$j]->$sMethod();
                 $sClass = $sSituacao == 'Disponível' ? 'selecionavel' : 'n-selecionavel';
-                $sHtml .= "<td id=\"{$aHorarios[$j]->getDia()}_".PersistenciaAgendamento::ATRIBUTO_HORARIO[$i]."}\"
+                $sHtml .= "<td id=\"{$aHorarios[$j]->getDia()} ".PersistenciaAgendamento::ATRIBUTO_HORARIO[$i]."\"
                             class=\"$sClass\"
                             onclick=\"selectHorario(this)\">$sSituacao</td>";
             }

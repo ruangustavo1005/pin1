@@ -1,0 +1,23 @@
+.container-msg-fail {
+    width: 50%;
+    background: #e4e9f2;
+    border-radius: 20px;
+    border: 1px solid red;
+    box-shadow: 7px 5px 5px rgba(0,0,0, 0.35);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    justify-content: center;
+}
+
+.message-fail {
+    font-family: Arial;
+    font-size: 22px;
+    padding: 10px;
+}
+
+.info-icon-fail {
+    height: 40px;
+    width: 40px;
+}

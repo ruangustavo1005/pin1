@@ -11,6 +11,8 @@ require_once '../estrutura/date_util.inc';
  */
 class PersistenciaAgendamento extends Persistencia {
     
+    const SITUACAO_ANALISE = 1;
+    
     const ATRIBUTO_HORARIO = [
         1 => '08:00',
         2 => '09:00',
@@ -77,6 +79,25 @@ class PersistenciaAgendamento extends Persistencia {
             $aHorarios[] = $oHorario;
         }
         return $aHorarios;
+    }
+    
+    
+    /**
+     * Insere um novo agendamento com base no modelo passado por parâmetro
+     * 
+     * @param  Agendamento $oAgendamento
+     * @return Boolean
+     */
+    public function insereAgendamento(Agendamento $oAgendamento) {
+        $oReq = $this->Query->prepare("
+            INSERT INTO tbagendamento(agesituacao, agedatahora, pescodigofuncionario, pescodigocliente, veiplaca)
+            VALUES (:situacao, :dataHora, null, :codigoCliente, :placa);
+        ");
+        $oReq->bindValue(':situacao', $oAgendamento->getSituacao());
+        $oReq->bindValue(':dataHora', $oAgendamento->getDataHora());
+        $oReq->bindValue(':codigoCliente', $oAgendamento->getCliente()->getCodigo());
+        $oReq->bindValue(':placa', $oAgendamento->getVeiculo()->getPlaca());
+        return $oReq->execute();
     }
     
 }

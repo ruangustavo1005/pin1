@@ -42,13 +42,12 @@ function selectHorario(oHorario) {
 }
 
 function realizaAgendamento() { 
-    debugger;
     var oSelected = document.querySelector('.selected-image'),
-        sPlaca = document.querySelector('#placa').innerText,
-        oNome = document.getElementById('nome'),
-        oCpf = document.getElementById('cpf'),
-        oData = document.getElementById('nascimento'),
-        oEmail = document.getElementById('email'),
+        sPlaca    = document.querySelector('#placa').innerText,
+        oNome     = document.getElementById('nome'),
+        oCpf      = document.getElementById('cpf'),
+        oData     = document.getElementById('nascimento'),
+        oEmail    = document.getElementById('email'),
         oTelefone = document.getElementById('telefone');
 
     if (oSelected && sPlaca) {
@@ -57,20 +56,26 @@ function realizaAgendamento() {
             url: 'http://localhost/pin1/estrutura/ajax.php',
             data: {
                 controller: 'ControllerAgendamento',
-                processo: 'realizaAgendamento',
-                placa: sPlaca,
-                horario: oSelected.id,
-                nome: oNome.value,
-                cpf: oCpf.value,
+                processo  : 'realizaAgendamento',
+                placa     : sPlaca,
+                horario   : oSelected.id,
+                nome      : oNome.value,
+                cpf       : oCpf.value,
                 nascimento: oData.value,
-                email: oEmail.value,
-                telefone: oTelefone.value
+                email     : oEmail.value,
+                telefone  : oTelefone.value
             },
-            cache: false,
+            cache   : false,
             dataType: 'html',
             success: function (oRes) {
                 if (oRes) {
-                    $("body").html(oRes);
+                    $('.bg-modal').append(oRes);
+//                    oSelected.setAttribute('class', 'n-selecionavel');
+//                    oSelected.innerHTML = 'Cheio';
+                    setTimeout(function() {
+                        $('.container-msg-success').remove();
+                        $('.container-msg-fail').remove();
+                    }, 2000);
                 }
             }
         });

@@ -8,6 +8,8 @@
         <link rel='stylesheet' type='text/css' media='screen' href='./css/card_veiculo.css'>
         <link rel='stylesheet' type='text/css' media='screen' href='./css/detalhes.css'>
         <link rel='stylesheet' type='text/css' media='screen' href='./css/search.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='./css/mensagem_sucesso.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='./css/mensagem_erro.css'>
         <script type="text/javascript" src="./js/detalhes.js"></script>
         <script type="text/javascript" src="./js/modal.js"></script>
         <script type="text/javascript" src="./js/menu.js"></script>
